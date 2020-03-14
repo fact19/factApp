@@ -1,4 +1,4 @@
-# FACT - Fight against corona threat
+# FACT (Fight against corona threat)
 
 Corona spreads only when personal hygiene is low. Let us **fight against corona threat** by conscious personal hygiene.
 
