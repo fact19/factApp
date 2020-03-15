@@ -9,8 +9,9 @@ Pledge to follow these simple ways to prevent corona virus
 1. Sneeze into your elbow so that hands are not contaminated
 2. Do not touch contaminated surfaces
 3. Wash your hands
-4. Ensure hygiene before touching the yours or your loved one&#39;s face
-5. Communicate personal hygiene threats around you by gently raising your hand and showing a zero. A gentle way of reminding others about washing hands. 
+4. Gargle with salt water
+5. Ensure hygiene before touching the yours or your loved one&#39;s face
+6. Communicate personal hygiene threats around you by gently raising your hand and showing a zero. A gentle way of reminding others about washing hands. 
 
 ![](fact.jpg)
 
@@ -29,12 +30,10 @@ Everybody has a strong role to play in this **FACT** (**fight against corona thr
 3. Microbiology subject matter experts can contribute by sharing key information (Corona physical attributes (size/shape/color etc), its detection (optical, acoustic, thermal, radio wave sensitivity etc) and control (reaction to light, sound, radio waves, heat etc)
 4. Medical practitioners can contribute tips
 5. Psychologists can contribute tips to improve consciousness
-6. Contribute to your community (location based equipment sharing- what ?).
-7. Volunteer for equipment sanitization (how ?)
-8. App developers can contribute to the project
+6. App developers can contribute to the project
   1. UI developers for different smartphone platforms (Android, Apple)
   2. Integration of wearables (Smart watch etc)
-9. App QA engineers can contribute by Testing out the features as they are developed using their equipment
-10. More to come
+7. App QA engineers can contribute by Testing out the features as they are developed using their equipment
+8. More to come
 
 
