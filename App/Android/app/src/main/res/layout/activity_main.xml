@@ -8,7 +8,7 @@
     tools:context=".MainActivity">
 
     <ImageView
-        android:id="@+id/handWash_img"
+        android:id="@+id/handWashImg"
         android:layout_width="125dp"
         android:layout_height="112dp"
         android:layout_marginStart="16dp"
@@ -19,7 +19,7 @@
         app:srcCompat="@drawable/handwash" />
 
     <ImageView
-        android:id="@+id/gargle_img"
+        android:id="@+id/gargleImg"
         android:layout_width="123dp"
         android:layout_height="113dp"
         android:layout_marginStart="18dp"
@@ -28,11 +28,11 @@
         android:layout_marginBottom="197dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/handWash_img"
+        app:layout_constraintTop_toBottomOf="@+id/handWashImg"
         app:srcCompat="@drawable/gargle2" />
 
     <SeekBar
-        android:id="@+id/handWash_SB"
+        android:id="@+id/handWashSeekBar"
         android:layout_width="207dp"
         android:layout_height="45dp"
         android:layout_marginStart="20dp"
@@ -43,11 +43,11 @@
         android:max="60"
         android:progress="0"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/handWash_img"
+        app:layout_constraintStart_toEndOf="@+id/handWashImg"
         app:layout_constraintTop_toTopOf="parent" />
 
     <SeekBar
-        android:id="@+id/gargle_SB"
+        android:id="@+id/gargleSeekBar"
         android:layout_width="207dp"
         android:layout_height="45dp"
         android:layout_marginStart="20dp"
@@ -60,8 +60,8 @@
         android:progress="0"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/gargle_img"
-        app:layout_constraintTop_toBottomOf="@+id/handWash_SB" />
+        app:layout_constraintStart_toEndOf="@+id/gargleImg"
+        app:layout_constraintTop_toBottomOf="@+id/handWashSeekBar" />
 
     <TextView
         android:id="@+id/handWashVal"
@@ -74,9 +74,9 @@
         android:layout_marginRight="121dp"
         android:layout_marginBottom="11dp"
         android:text="0"
-        app:layout_constraintBottom_toTopOf="@+id/handWash_SB"
+        app:layout_constraintBottom_toTopOf="@+id/handWashSeekBar"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/handWash_img"
+        app:layout_constraintStart_toEndOf="@+id/handWashImg"
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
@@ -90,9 +90,9 @@
         android:layout_marginRight="122dp"
         android:layout_marginBottom="17dp"
         android:text="0"
-        app:layout_constraintBottom_toTopOf="@+id/gargle_SB"
+        app:layout_constraintBottom_toTopOf="@+id/gargleSeekBar"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/gargle_img"
-        app:layout_constraintTop_toBottomOf="@+id/handWash_SB" />
+        app:layout_constraintStart_toEndOf="@+id/gargleImg"
+        app:layout_constraintTop_toBottomOf="@+id/handWashSeekBar" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
