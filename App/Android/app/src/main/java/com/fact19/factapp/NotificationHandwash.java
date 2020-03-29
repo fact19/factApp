@@ -3,7 +3,9 @@ package com.fact19.factapp;
 import android.app.Activity;
 import android.os.Bundle;
 
-public class NotificationHandwash extends Activity {
+import androidx.appcompat.app.AppCompatActivity;
+
+public class NotificationHandwash extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

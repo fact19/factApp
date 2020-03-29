@@ -51,7 +51,7 @@
                                             <option name="values">
                                               <map>
                                                 <entry key="color" value="000000" />
-                                                <entry key="scalingPercent" value="44" />
+                                                <entry key="scalingPercent" value="69" />
                                                 <entry key="trimmed" value="true" />
                                               </map>
                                             </option>
@@ -63,9 +63,7 @@
                                   <option name="values">
                                     <map>
                                       <entry key="backgroundAssetType" value="COLOR" />
-                                      <entry key="backgroundColor" value="3ca5dc" />
-                                      <entry key="foregroundImage" value="D:\Android-Projects\App-Icon.png" />
-                                      <entry key="previewDensity" value="XXXHIGH" />
+                                      <entry key="foregroundImage" value="D:\Android-Projects\App Images\fact.jpg" />
                                     </map>
                                   </option>
                                 </PersistentState>
