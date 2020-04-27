@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/Application/Application.iml" filepath="$PROJECT_DIR$/Application/Application.iml" group="FactApp/Application" />
+      <module fileurl="file://$PROJECT_DIR$/FactApp.iml" filepath="$PROJECT_DIR$/FactApp.iml" group="FactApp" />
+      <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" group="FactApp/app" />
+      <module fileurl="file://$PROJECT_DIR$/arcore/arcore.iml" filepath="$PROJECT_DIR$/arcore/arcore.iml" group="FactApp/arcore" />
+      <module fileurl="file://$PROJECT_DIR$/camera-ruler/camera-ruler.iml" filepath="$PROJECT_DIR$/camera-ruler/camera-ruler.iml" group="FactApp/camera-ruler" />
+      <module fileurl="file://$PROJECT_DIR$/opencv-android/opencv-android.iml" filepath="$PROJECT_DIR$/opencv-android/opencv-android.iml" group="FactApp/opencv-android" />
+    </modules>
+  </component>
+</project>

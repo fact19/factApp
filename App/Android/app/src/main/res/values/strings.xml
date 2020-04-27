@@ -1,3 +1,5 @@
 <resources>
     <string name="app_name">FactApp</string>
+    <string name="Off">Off</string>
+    <string name="On">On</string>
 </resources>
