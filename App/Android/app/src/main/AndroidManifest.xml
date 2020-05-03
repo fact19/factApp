@@ -18,7 +18,6 @@
             </intent-filter>
         </activity>
 
-        <activity android:name=".NotificationHandwash" />
         <activity android:name=".NotificationGargle" />
         <service android:name=".AccMeterService" />
     </application>
