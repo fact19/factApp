@@ -41,17 +41,12 @@ import java.util.TimerTask;
 
 public class FactAppActivity extends AppCompatActivity {
 
-    SeekBar handWashSeekBar;
     SeekBar gargleSeekBar;
 
-    ProgressBar handWashProgBar;
-
-    TextView handWashTxtVw;
     TextView gargleTxtVw;
     TextView trackHandStatus;
     TextView accMeterValueTxtVw;
 
-    ImageView handWashIMG;
     ImageView gargleIMG;
 
     Switch handTrackerSwitch;
@@ -61,10 +56,8 @@ public class FactAppActivity extends AppCompatActivity {
 
     NotificationManager notificationManager;
 
-    String handWashMsg = "Its time to HandWash :)";
     String gargleMsg   = "Its time to Gargle :)";
 
-    int handWashChangedValue = 0;
     int gargleChangedValue = 0;
 
     long lastUpdate;
@@ -77,82 +70,22 @@ public class FactAppActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         SharedPreferences sharedPref = getApplicationContext().getSharedPreferences("FactApp", 0);
-        handWashChangedValue = sharedPref.getInt("handWashValue",0);
         gargleChangedValue = sharedPref.getInt("gargleValue", 0);
         defaultAccMeterStatus = sharedPref.getBoolean("handTrackerStatus", false);
 
         if (savedInstanceState != null) {
-            handWashChangedValue = savedInstanceState.getInt("handWashValue", 0);
             gargleChangedValue = savedInstanceState.getInt("gargleValue", 0);
         }
 
-        handWashSeekBar    = findViewById(R.id.handWashSeekBar);
         gargleSeekBar      = findViewById(R.id.gargleSeekBar);
-        handWashTxtVw      = findViewById(R.id.handWashVal);
         gargleTxtVw        = findViewById(R.id.gargleVal);
         accMeterValueTxtVw = findViewById(R.id.accMeterValueTxtVw);
-        handWashIMG        = findViewById(R.id.handWashImg);
         gargleIMG          = findViewById(R.id.gargleImg);
         handTrackerSwitch  = findViewById(R.id.handTrackerSwitch);
 
-        handWashSeekBar.setProgress(handWashChangedValue);
         gargleSeekBar.setProgress(gargleChangedValue);
         handTrackerSwitch.setChecked(defaultAccMeterStatus);
-        handWashTxtVw.setText(handWashChangedValue + " min");
         gargleTxtVw.setText(gargleChangedValue + " min");
-
-
-        handWashSeekBar.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
-            Timer handWashTimer;
-            TimerTask handWashTask;
-            int i =0;
-            Handler hdlr = new Handler();
-
-            @Override
-            public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser) {
-                handWashChangedValue = progress;
-
-                handWashTxtVw.setText(progress + " min");
-
-                int width = seekBar.getWidth() - seekBar.getPaddingLeft() - seekBar.getPaddingRight();
-                int thumbPos = seekBar.getPaddingLeft() + width * seekBar.getProgress() / seekBar.getMax();
-
-                handWashTxtVw.measure(0, 0);
-                int txtW = handWashTxtVw.getMeasuredWidth();
-                int delta = txtW / 2;
-                handWashTxtVw.setX(seekBar.getX() + thumbPos - delta);
-            }
-
-            @Override
-            public void onStartTrackingTouch(SeekBar seekBar) {
-                if(handWashTimer!=null) {
-                    handWashTimer.cancel();
-                    handWashTask.cancel();
-                }
-            }
-
-            @Override
-            public void onStopTrackingTouch(SeekBar seekBar) {
-                //handWashTimer.cancel();
-                //handWashTask.cancel();
-                handWashTimer = new Timer();
-                handWashTask = new TimerTask() {
-                    public void run() {
-                        playAlarm(R.raw.softbells);
-                        showNotification(FactAppActivity.this, handWashMsg, NotificationHandwash.class);
-                    }
-                };
-                if(handWashChangedValue > 0) {
-                    handWashTimer.schedule(handWashTask, handWashChangedValue * 60000, handWashChangedValue * 60000);
-                    handWashTxtVw.setText(handWashSeekBar.getProgress() + " min");
-                    toastMessage("Handwash interval set to " + handWashChangedValue + " min");
-
-
-
-
-                }
-            }
-        }); // End of handwash seekbar
 
         gargleSeekBar.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
             Timer gargleTimer;
@@ -167,7 +100,7 @@ public class FactAppActivity extends AppCompatActivity {
                 int thumbPos = seekBar.getPaddingLeft() + width * seekBar.getProgress() / seekBar.getMax();
 
                 gargleTxtVw.measure(0, 0);
-                int txtW = handWashTxtVw.getMeasuredWidth();
+                int txtW = gargleTxtVw.getMeasuredWidth();
                 int delta = txtW / 2;
                 gargleTxtVw.setX(seekBar.getX() + thumbPos - delta);
             }
@@ -222,7 +155,6 @@ public class FactAppActivity extends AppCompatActivity {
     @Override
     public void onSaveInstanceState(Bundle outState) {
         super.onSaveInstanceState(outState);
-        outState.putInt("handWashValue", handWashChangedValue);
         outState.putInt("gargleValue", gargleChangedValue);
     }
 
@@ -230,7 +162,6 @@ public class FactAppActivity extends AppCompatActivity {
     protected void onRestoreInstanceState(Bundle savedInstanceState) {
         super.onRestoreInstanceState(savedInstanceState);
         //Toast.makeText(getApplicationContext(), "onRestoreInstanceState", Toast.LENGTH_SHORT).show();
-        handWashChangedValue = savedInstanceState.getInt("handWashValue", 0);
         gargleChangedValue = savedInstanceState.getInt("gargleValue", 0);
     }
 
@@ -239,7 +170,6 @@ public class FactAppActivity extends AppCompatActivity {
         super.onDestroy();
         SharedPreferences sharedPref = getApplicationContext().getSharedPreferences("FactApp", 0);
         SharedPreferences.Editor editor = sharedPref.edit();
-        editor.putInt("handWashValue", handWashChangedValue);
         editor.putInt("gargleValue", gargleChangedValue);
         editor.putBoolean("handTrackerStatus", defaultAccMeterStatus);
         editor.commit();
