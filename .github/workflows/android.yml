@@ -15,6 +15,4 @@ jobs:
     - name: Make Gradle executable
       run: chmod +x ./App/Android/gradlew
     - name: Build with Gradle
-      run: ./App/Android/gradlew build
-    - name: Build Debug APK
-      run: ./App/Android/gradlew assembleDebug
+      run: ./App/Android/gradlew build    
