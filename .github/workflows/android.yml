@@ -13,8 +13,8 @@ jobs:
       with:
         java-version: 1.8
     - name: Make Gradle executable
-      run: chmod +x ./gradlew
+      run: chmod +x ./factApp/App/Android/gradlew
     - name: Build with Gradle
-      run: ./gradlew build
+      run: ./factApp/App/Android/gradlew build
     - name: Build Debug APK
-      run: ./gradlew assembleDebug
+      run: ./factApp/App/Android/gradlew assembleDebug
