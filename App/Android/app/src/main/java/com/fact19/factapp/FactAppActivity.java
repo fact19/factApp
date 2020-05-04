@@ -64,7 +64,6 @@ public class FactAppActivity extends AppCompatActivity {
         defaultAccMeterStatus = sharedPref.getBoolean("handTrackerStatus", false);
 
         accMeterValueTxtVw = findViewById(R.id.accMeterValueTxtVw);
-        gargleIMG          = findViewById(R.id.gargleImg);
         handTrackerSwitch  = findViewById(R.id.handTrackerSwitch);
 
         handTrackerSwitch.setChecked(defaultAccMeterStatus);
@@ -98,7 +97,6 @@ public class FactAppActivity extends AppCompatActivity {
     protected void onRestoreInstanceState(Bundle savedInstanceState) {
         super.onRestoreInstanceState(savedInstanceState);
         //Toast.makeText(getApplicationContext(), "onRestoreInstanceState", Toast.LENGTH_SHORT).show();
-        gargleChangedValue = savedInstanceState.getInt("gargleValue", 0);
     }
 
     @Override
@@ -106,7 +104,6 @@ public class FactAppActivity extends AppCompatActivity {
         super.onDestroy();
         SharedPreferences sharedPref = getApplicationContext().getSharedPreferences("FactApp", 0);
         SharedPreferences.Editor editor = sharedPref.edit();
-        editor.putInt("gargleValue", gargleChangedValue);
         editor.putBoolean("handTrackerStatus", defaultAccMeterStatus);
         editor.commit();
     }
