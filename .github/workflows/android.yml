@@ -17,4 +17,4 @@ jobs:
     - name: Build with Gradle
       run: ./App/Android/app/gradlew build
     - name: Build Debug APK
-      run: ./App/Android/app/gradlew assembleDebug
+      run: ./App/Android/app/gradlew --debug assembleDebug
