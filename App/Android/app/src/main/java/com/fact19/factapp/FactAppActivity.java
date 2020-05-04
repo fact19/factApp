@@ -41,13 +41,8 @@ import java.util.TimerTask;
 
 public class FactAppActivity extends AppCompatActivity {
 
-    SeekBar gargleSeekBar;
-
-    TextView gargleTxtVw;
     TextView trackHandStatus;
     TextView accMeterValueTxtVw;
-
-    ImageView gargleIMG;
 
     Switch handTrackerSwitch;
 
@@ -55,10 +50,6 @@ public class FactAppActivity extends AppCompatActivity {
     Button factTrackOffBtn;
 
     NotificationManager notificationManager;
-
-    String gargleMsg   = "Its time to Gargle :)";
-
-    int gargleChangedValue = 0;
 
     long lastUpdate;
 
@@ -70,67 +61,13 @@ public class FactAppActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         SharedPreferences sharedPref = getApplicationContext().getSharedPreferences("FactApp", 0);
-        gargleChangedValue = sharedPref.getInt("gargleValue", 0);
         defaultAccMeterStatus = sharedPref.getBoolean("handTrackerStatus", false);
 
-        if (savedInstanceState != null) {
-            gargleChangedValue = savedInstanceState.getInt("gargleValue", 0);
-        }
-
-        gargleSeekBar      = findViewById(R.id.gargleSeekBar);
-        gargleTxtVw        = findViewById(R.id.gargleVal);
         accMeterValueTxtVw = findViewById(R.id.accMeterValueTxtVw);
         gargleIMG          = findViewById(R.id.gargleImg);
         handTrackerSwitch  = findViewById(R.id.handTrackerSwitch);
 
-        gargleSeekBar.setProgress(gargleChangedValue);
         handTrackerSwitch.setChecked(defaultAccMeterStatus);
-        gargleTxtVw.setText(gargleChangedValue + " min");
-
-        gargleSeekBar.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
-            Timer gargleTimer;
-            TimerTask gargleTask;
-
-            @Override
-            public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser) {
-                gargleChangedValue = progress;
-                gargleTxtVw.setText(progress + " min");
-
-                int width = seekBar.getWidth() - seekBar.getPaddingLeft() - seekBar.getPaddingRight();
-                int thumbPos = seekBar.getPaddingLeft() + width * seekBar.getProgress() / seekBar.getMax();
-
-                gargleTxtVw.measure(0, 0);
-                int txtW = gargleTxtVw.getMeasuredWidth();
-                int delta = txtW / 2;
-                gargleTxtVw.setX(seekBar.getX() + thumbPos - delta);
-            }
-
-            @Override
-            public void onStartTrackingTouch(SeekBar seekBar) {
-                if(gargleTimer!=null) {
-                    gargleTimer.cancel();
-                    gargleTask.cancel();
-                }
-            }
-
-            @Override
-            public void onStopTrackingTouch(SeekBar seekBar) {
-                //gargleTimer.cancel();
-                //gargleTask.cancel();
-                gargleTimer = new Timer();
-                gargleTask = new TimerTask() {
-                    public void run() {
-                        playAlarm(R.raw.garglenotification);
-                        showNotification(FactAppActivity.this, gargleMsg, NotificationGargle.class);
-                    }
-                };
-                if(gargleChangedValue > 0) {
-                    gargleTimer.schedule(gargleTask, gargleChangedValue * 60000, gargleChangedValue * 60000);
-                    gargleTxtVw.setText(gargleSeekBar.getProgress() + " min");
-                    toastMessage("Gargle interval set to " + gargleChangedValue + " min");
-                }
-            }
-        }); //End of gargle seekbar
 
         handTrackerSwitch.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override
@@ -155,7 +92,6 @@ public class FactAppActivity extends AppCompatActivity {
     @Override
     public void onSaveInstanceState(Bundle outState) {
         super.onSaveInstanceState(outState);
-        outState.putInt("gargleValue", gargleChangedValue);
     }
 
     @Override
